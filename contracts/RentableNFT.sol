@@ -18,7 +18,6 @@ contract RentableNFT is ERC4907, Ownable {
         address user,
         uint64 expires
     ) public payable {
-        require(msg.value >= 0.0000001 ether, "min rent fee 0.000001 eth reqd");
         setUser(tokenId, user, expires);
     }
 }
