@@ -42,9 +42,7 @@ it("Rent flow", async () => {
 
   const tx2 = await rentableNFT
     .connect(owner)
-    .rentOut(0, renter.address, expiryTimestamp, {
-      value: ethers.utils.parseEther("0.01"),
-    });
+    .rentOut(0, renter.address, expiryTimestamp);
   await tx2.wait();
 
   // check 'renter i.e. 'user' of tokenId 0
