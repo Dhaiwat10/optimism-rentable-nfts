@@ -26,7 +26,11 @@ module.exports = {
   networks: {
     optimism: {
       url: "https://rpc.ankr.com/optimism",
-      accounts: process.env.PRIVATE_KEY,
+      accounts: [process.env.PRIVATE_KEY],
+    },
+    optimism_kovan: {
+      url: "https://kovan.optimism.io/",
+      accounts: [process.env.PRIVATE_KEY],
     },
     ropsten: {
       url: process.env.ROPSTEN_URL || "",

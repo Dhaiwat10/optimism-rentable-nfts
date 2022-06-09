@@ -15,7 +15,9 @@ npx hardhat node
 npx hardhat test
 ```
 
+Live deployed contract address on the Optimism Kovan testnet: [0x7e9fbcd6796281ca90424c2b4f1b73e01e733ad3](https://kovan-optimistic.etherscan.io/address/0x7e9fbcd6796281ca90424c2b4f1b73e01e733ad3)
+
 ## Todo
 
-- [ ] Deploy to Optimism Kovan testnet
+- [x] Deploy to Optimism Kovan testnet
 - [ ] Add a token URI/metadata to the NFTs so that they can be demoed on a marketplace
