@@ -20,5 +20,5 @@ Live deployed contract address on the Optimism Kovan testnet: [0x7e9fbcd6796281c
 ## Todo
 
 - [x] Deploy to Optimism Kovan testnet
-- [ ] Verify the contract on Etherscan
+- [x] Verify the contract on Etherscan
 - [ ] Add a token URI/metadata to the NFTs so that they can be demoed on a marketplace
