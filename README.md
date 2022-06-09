@@ -1,4 +1,4 @@
-# Rentable NFTs
+# Rentable NFTs on Optimism 🔴
 
 Based on top of [EIP-4907](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-4907.md).
 
