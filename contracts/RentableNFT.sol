@@ -5,13 +5,9 @@ import "./ERC4907.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract RentableNFT is ERC4907, Ownable {
-    // string private baseTokenUri;
-
     constructor(string memory name, string memory symbol)
         ERC4907(name, symbol)
-    {
-        // set baseTokenUri here
-    }
+    {}
 
     function mint(uint256 tokenId, address to) public {
         _mint(to, tokenId);
