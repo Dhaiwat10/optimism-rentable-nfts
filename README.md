@@ -18,3 +18,4 @@ npx hardhat test
 ## Todo
 
 - [ ] Deploy to Optimism Kovan testnet
+- [ ] Add a token URI/metadata to the NFTs so that they can be demoed on a marketplace
