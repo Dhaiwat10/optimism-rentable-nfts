@@ -17,7 +17,7 @@ contract RentableNFT is ERC4907, Ownable {
         uint256 tokenId,
         address user,
         uint64 expires
-    ) public payable {
+    ) public onlyOwner {
         setUser(tokenId, user, expires);
     }
 }

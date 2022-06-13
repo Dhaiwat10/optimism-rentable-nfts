@@ -1,13 +1,6 @@
 const { expect } = require("chai");
 const { ethers, network } = require("hardhat");
 
-const getBlockTimestamp = async () => {
-  const blockNumBefore = await ethers.provider.getBlockNumber();
-  const blockBefore = await ethers.provider.getBlock(blockNumBefore);
-  const timestampBefore = blockBefore.timestamp;
-  return timestampBefore;
-};
-
 const setupContract = async () => {
   const RentableNFT = await ethers.getContractFactory("RentableNFT");
   const rentableNFT = await RentableNFT.deploy("RentableNFT", "RNFT");
@@ -20,7 +13,7 @@ const setupAccounts = async () => {
   return [accounts[0], accounts[1]];
 };
 
-xit("RentableNFT contract is deployed", async () => {
+it("RentableNFT contract is deployed", async () => {
   const rentableNFT = await setupContract();
   expect(rentableNFT.address).to.not.equal(undefined);
 });
@@ -39,7 +32,6 @@ it("Rent flow", async () => {
 
   // rent the nft to renter for 1 hour
   const expiryTimestamp = Math.round(new Date().getTime() / 1000) + 3600;
-
   const tx2 = await rentableNFT
     .connect(owner)
     .rentOut(0, renter.address, expiryTimestamp);
@@ -50,10 +42,11 @@ it("Rent flow", async () => {
   expect(renterOf).to.equal(renter.address);
 
   // fast forward the chain to 2 hours later and check if the nft is still rented
-  await network.provider.send("evm_increaseTime", [7200]);
+  await network.provider.send("evm_increaseTime", [3601]);
   await network.provider.send("evm_mine");
 
   // check 'renter i.e. 'user' of tokenId 0
   const renterOf2 = await rentableNFT.userOf(0);
   expect(renterOf2).to.not.equal(renter.address);
+  expect(renterOf2).to.equal("0x0000000000000000000000000000000000000000");
 });
