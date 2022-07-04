@@ -23,12 +23,18 @@ it("Rent flow", async () => {
   const [owner, renter] = await setupAccounts();
 
   // mint tokenId 0 to owner
-  const tx = await rentableNFT.connect(owner).mint(0, owner.address);
+  const tx = await rentableNFT
+    .connect(owner)
+    .mint(0, "QmPf2x91DoemnhXSZhGDP8TX9Co8AScpvFzTuFt9BGAoBY");
   await tx.wait();
 
   // check owner of tokenId 0
   const ownerOf = await rentableNFT.ownerOf(0);
   expect(ownerOf).to.equal(owner.address);
+
+  // check tokenURI
+  const tokenURI = await rentableNFT.tokenURI(0);
+  expect(tokenURI).to.equal("QmPf2x91DoemnhXSZhGDP8TX9Co8AScpvFzTuFt9BGAoBY");
 
   // rent the nft to renter for 1 hour
   const expiryTimestamp = Math.round(new Date().getTime() / 1000) + 3600;
