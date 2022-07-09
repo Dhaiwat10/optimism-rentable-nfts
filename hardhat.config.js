@@ -23,21 +23,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  */
 module.exports = {
   solidity: "0.8.4",
-  networks: {
-    optimism: {
-      url: "https://rpc.ankr.com/optimism",
-      accounts: [process.env.PRIVATE_KEY],
-    },
-    optimism_kovan: {
-      url: "https://kovan.optimism.io/",
-      accounts: [process.env.PRIVATE_KEY],
-    },
-  },
+  networks: {},
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
-  },
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
   },
 };
